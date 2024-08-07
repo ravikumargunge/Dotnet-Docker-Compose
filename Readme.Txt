@@ -7,7 +7,7 @@ dotnet ef migrations add InitialCreate --startup-project ../webapi
 # Apply migrations
 dotnet ef database update --startup-project ../webapi
 
-# To remove bin and obj directories from all the folders.
+# To remove bin and obj directories from all the folders. Works for Linux based OS.
 find . -type d \( -name "bin" -o -name "obj" \) -exec rm -rf {} +
 
 # then commit
