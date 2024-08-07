@@ -6,3 +6,12 @@ dotnet ef migrations add InitialCreate --startup-project ../webapi
 
 # Apply migrations
 dotnet ef database update --startup-project ../webapi
+
+# To remove bin and obj directories from all the folders.
+find . -type d \( -name "bin" -o -name "obj" \) -exec rm -rf {} +
+
+# then commit
+git commit -m "Remove bin and obj folders from Git repository"
+
+
+
