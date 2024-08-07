@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
+    container_name: sqlserverinstance
+    environment:
+      - SA_PASSWORD="Password@1234"
+      - ACCEPT_EULA="Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - mynetwork
+    volumes:
+      - SQlDbVol:/var/opt/mssql
+
+  webapi:
+    image: webapi:latest
+    container_name: webapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5230:5230"
+    depends_on:
+      - sqlserver
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+    driver: bridge
+volumes:
+  SQlDbVol:
+    external: true

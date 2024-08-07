@@ -1,0 +1,8 @@
+sudo docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=Password@1234" -p 1433:1433  --name sqlpreview --hostname sqlpreview -v SQlDbVol:/var/opt/mssql -d mcr.microsoft.com/mssql/server:2022-preview-ubuntu-22.04
+
+
+# Create migrations
+dotnet ef migrations add InitialCreate --startup-project ../webapi
+
+# Apply migrations
+dotnet ef database update --startup-project ../webapi
