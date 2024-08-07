@@ -1,2 +1,8 @@
 bin
 obj
+webapi/bin
+webapi/obj
+dataaccess/obj
+dataaccess/bin
+Models/obj
+Models/bin
