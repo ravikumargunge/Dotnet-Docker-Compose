@@ -42,16 +42,17 @@ namespace webapi
 
         [HttpGet]
         [Route("GetUser")]
-        public async Task<IActionResult> GetUserById(string PhoneNumber)
+        public async Task<IActionResult> GetUserByUserName(string PhoneNumber)
         {
             var user = new ApplicationUser
             {
-                PhoneNumber = PhoneNumber
+                PhoneNumber = PhoneNumber,
+                UserName= PhoneNumber
             };
-            var result = await _userManager.GetUserIdAsync(user);
-            if (!string.IsNullOrEmpty(result))
+            var result = await _userManager.FindByNameAsync(PhoneNumber);
+            if (!string.IsNullOrEmpty(result?.Id.ToString()))
             {
-                return Ok($"Username {result}");
+                return Ok(result);
             }
             return NotFound("Not Found");
         }
