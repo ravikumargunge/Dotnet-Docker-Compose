@@ -19,6 +19,3 @@ sudo docker rm sqlserverinstance
 sudo docker stop webapi
 sudo docker rm webapi
 
-
-
-

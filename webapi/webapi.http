@@ -1,6 +1,23 @@
-@webapi_HostAddress = http://localhost:5024
+@webapi_HostAddress = http://localhost:5230
 
 GET {{webapi_HostAddress}}/weatherforecast/
 Accept: application/json
 
+### Create User
+POST {{webapi_HostAddress}}/api/User/register
+Content-Type: application/json
+
+{
+    "mobileNumber":"123456789",
+    "password":"Fuck@1",
+    "name":"RaviG",
+    "gender":"Male",
+    "email":"ravig@gmail.com",
+    "age":45
+}
+
+GET {{{{webapi_HostAddress}}}}/api/user/getuser?phonenumber=9032733028
+Accept: application/json
 ###
+
+

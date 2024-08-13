@@ -40,6 +40,22 @@ namespace webapi
             return BadRequest(result.Errors);
         }
 
+        [HttpGet]
+        [Route("GetUser")]
+        public async Task<IActionResult> GetUserById(string PhoneNumber)
+        {
+            var user = new ApplicationUser
+            {
+                PhoneNumber = PhoneNumber
+            };
+            var result = await _userManager.GetUserIdAsync(user);
+            if (!string.IsNullOrEmpty(result))
+            {
+                return Ok($"Username {result}");
+            }
+            return NotFound("Not Found");
+        }
+
 
         // [HttpGet]
         // [Route("Get")]
