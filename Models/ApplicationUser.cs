@@ -3,13 +3,11 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Models;
 
-public class ApplicationUser: IdentityUser
+public class ApplicationUser : IdentityUser<int>
 {
-    public int Id { get; set; }
-    public required string FullName { get; set; }
-    public required string Email { get; set; }
-    public required string PinCode { get; set; }
-    public required string  PhoneNumber {get;set; }
+    public string FullName { get; set; }
+
+    public string PinCode { get; set; }
 
     [JsonIgnore]
     public DateTime CreatedOn { get; set; }

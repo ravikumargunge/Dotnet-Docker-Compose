@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Logging.ClearProviders();
 builder.Logging.AddConsole();
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(connectionString).LogTo(Console.WriteLine, LogLevel.Information);
