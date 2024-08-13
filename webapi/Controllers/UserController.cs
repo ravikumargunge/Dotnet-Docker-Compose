@@ -47,7 +47,7 @@ namespace webapi
             var user = new ApplicationUser
             {
                 PhoneNumber = PhoneNumber,
-                UserName= PhoneNumber
+                UserName = PhoneNumber
             };
             var result = await _userManager.FindByNameAsync(PhoneNumber);
             if (!string.IsNullOrEmpty(result?.Id.ToString()))
@@ -56,37 +56,5 @@ namespace webapi
             }
             return NotFound("Not Found");
         }
-
-
-        // [HttpGet]
-        // [Route("Get")]
-        // public IActionResult Get()
-        // {
-        //     var registrations = _applicationDbContext?.Registrations.ToList();
-        //     if (registrations == null)
-        //     {
-        //         return NotFound();
-        //     }
-        //     else
-        //     {
-        //         return Ok(registrations.ToList());
-        //     }
-
-        // }
-
-        // [HttpPost]
-        // [Route("Post")]
-        // public IActionResult Post(ApplicationUser registration)
-        // {
-
-        //     if (!ModelState.IsValid)
-        //     {
-        //         return BadRequest();
-        //     }
-        //     var result = _applicationDbContext.Registrations.Add(registration);
-        //     _applicationDbContext.SaveChanges();
-        //     return Ok(registration.Id);
-        // }
-
     }
 }
